@@ -19,8 +19,17 @@ const canvasSlice = createSlice({
     addLayer: (state, action: PayloadAction<Layer>) => {
       state.layers.push(action.payload);
     },
+    removeLayer: (state, action: PayloadAction<number>) => {
+      state.layers.splice(action.payload, 1);
+    },
+    undo: (state) => {
+      state.layers.pop();
+    },
+    clearLayers: (state) => {
+      state.layers = [];
+    },
   },
 });
 
-export const { addLayer } = canvasSlice.actions;
+export const { addLayer, removeLayer, undo, clearLayers } = canvasSlice.actions;
 export default canvasSlice.reducer;

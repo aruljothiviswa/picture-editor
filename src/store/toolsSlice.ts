@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface ToolsState {
   selectedTool: string;
@@ -7,13 +7,13 @@ interface ToolsState {
 }
 
 const initialState: ToolsState = {
-  selectedTool: '',
+  selectedTool: "",
   selectedColor: 0,
   selectedShape: 0,
 };
 
 const toolsSlice = createSlice({
-  name: 'tools',
+  name: "tools",
   initialState,
   reducers: {
     setTool: (state, action: PayloadAction<string>) => {
@@ -25,8 +25,13 @@ const toolsSlice = createSlice({
     setShape: (state, action: PayloadAction<number>) => {
       state.selectedShape = action.payload;
     },
+    resetTool: (state) => {
+      state.selectedColor = initialState.selectedColor;
+      state.selectedShape = initialState.selectedShape;
+      state.selectedTool = initialState.selectedTool;
+    },
   },
 });
 
-export const { setTool, setColor, setShape } = toolsSlice.actions;
+export const { setTool, setColor, setShape, resetTool } = toolsSlice.actions;
 export default toolsSlice.reducer;

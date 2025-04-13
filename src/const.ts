@@ -4,6 +4,9 @@ export const constant = {
   CLEAR_ALL: "Clear All",
   COLOR: "Color",
   SHAPE: "Shape",
+  LAYERS: "Layers",
+  DELETE: "Delete",
+  UNDO: "Undo",
 };
 
 export const colors = ["red", "green", "yellow", "blue"];

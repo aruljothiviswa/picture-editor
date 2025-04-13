@@ -3,7 +3,8 @@ import fillColor from "../../icons/fillColor.svg";
 import clearAll from "../../icons/clearAll.svg";
 import { constant } from "../../const";
 import { useDispatch } from "react-redux";
-import { setTool } from "../../store/toolsSlice";
+import { resetTool, setTool } from "../../store/toolsSlice";
+import { clearLayers } from "../../store/canvasSlice";
 
 const Toolbar = () => {
   const dispatch = useDispatch();
@@ -17,7 +18,8 @@ const Toolbar = () => {
   };
 
   const handleClearClick = () => {
-    dispatch(setTool(""));
+    dispatch(resetTool());
+    dispatch(clearLayers());
   };
 
   return (
