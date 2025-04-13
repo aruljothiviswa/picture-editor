@@ -2,18 +2,25 @@ import "./ColorShapes.css";
 import { colors } from "../../const";
 import { constant } from "../../const";
 import { shapes } from "../../const";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../store/store";
+import { setColor, setShape } from "../../store/toolsSlice";
 
 const ControlPanel = () => {
-  const selectedTool = "shape";
+  const { selectedTool, selectedColor, selectedShape } = useSelector(
+    (state: RootState) => state.tools
+  );
+  const dispatch = useDispatch();
+
   const indexVal = 2;
   if (!selectedTool) return null;
 
-  const onHandleShapeChange = (e: any) => {
-    console.log("onHandleShapeChange", e);
+  const onHandleShapeChange = (index: number) => {
+    dispatch(setShape(index));
   };
 
-  const onHandleColorChange = (e: any) => {
-    console.log("onHandleColorChange", e);
+  const onHandleColorChange = (index: number) => {
+    dispatch(setColor(index));
   };
 
   return (
@@ -33,7 +40,7 @@ const ControlPanel = () => {
                       cursor: "pointer",
                       background: `${color}`,
                       margin: "5px",
-                      border: indexVal === index ? "2px solid Black" : "",
+                      border: selectedColor === index ? "2px solid Black" : "",
                     }}
                     onClick={() => onHandleColorChange(index)}
                   ></div>
@@ -59,7 +66,7 @@ const ControlPanel = () => {
                       cursor: "pointer",
                       margin: "5px",
                       backgroundColor:
-                        indexVal === index ? "#383332" : "lightgray",
+                        selectedShape === index ? "#383332" : "lightgray",
                     }}
                     onClick={() => onHandleShapeChange(index)}
                   />

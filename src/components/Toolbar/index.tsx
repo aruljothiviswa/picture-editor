@@ -2,18 +2,22 @@ import shapeTool from "../../icons/shapeTool.svg";
 import fillColor from "../../icons/fillColor.svg";
 import clearAll from "../../icons/clearAll.svg";
 import { constant } from "../../const";
+import { useDispatch } from "react-redux";
+import { setTool } from "../../store/toolsSlice";
 
 const Toolbar = () => {
+  const dispatch = useDispatch();
+
   const handleShapeClick = () => {
-    console.log("handleShapeClick");
+    dispatch(setTool("shape"));
   };
 
   const handleFillColorClick = () => {
-    console.log("handleFillColorClick");
+    dispatch(setTool("fill"));
   };
 
   const handleClearClick = () => {
-    console.log("handleClearClick");
+    dispatch(setTool(""));
   };
 
   return (
