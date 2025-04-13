@@ -1,9 +1,11 @@
-import { configureStore } from '@reduxjs/toolkit';
-import toolsReducer from './toolsSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import toolsReducer from "./toolsSlice";
+import canvasReducer from "./canvasSlice";
 
 export const store = configureStore({
   reducer: {
     tools: toolsReducer,
+    canvas: canvasReducer,
   },
 });
 

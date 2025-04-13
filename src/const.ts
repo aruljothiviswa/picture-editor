@@ -10,16 +10,31 @@ export const colors = ["red", "green", "yellow", "blue"];
 
 export const shapes = [
   {
+    type: "circle",
     width: "20px",
     height: "20px",
     border: "1px solid black",
     borderRadius: "50%",
   }, // circle
-  { width: "20px", height: "20px", border: "1px solid black", borderRadius: 0 }, // square
   {
+    type: "square",
+    width: "20px",
+    height: "20px",
+    border: "1px solid black",
+    borderRadius: 0,
+  }, // square
+  {
+    type: "oval",
     width: "40px",
     height: "20px",
     border: "1px solid black",
     borderRadius: "50%",
   }, // oval
+  {
+    type: "rectangle",
+    width: "40px",
+    height: "20px",
+    border: "1px solid black",
+    borderRadius: 0,
+  }, // rectangle
 ];
